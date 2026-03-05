@@ -1,0 +1,19 @@
+Deque - 05/03/2026
+
+É uma fila de duas pontas, pode ser first in, first out ou last in, first out, mas não tira do meio, se tirar do meio deixa de ser deque;
+
+Exemplo - fila de prioridaddes
+posso fazer o shift() e pop() e posso inserir na frente, unshift() (colocar na posição 0).
+
+o que terá no codigo:
+shift()
+unshift()
+push()
+pop()
+
+Deque - Double-Ended Queue.
+É uma lista linear de acesso restrito, que permite apenas as operações de enfileiramento (insertFront/insertBack) e desenfileiramento (removeFront/removeBack), acontecendo em qualquer uma das extremidades da estrutura.
+Como consequencia, o deque NÃO SEGUE o principio FIFO.
+A principal aplicação dos deques são situações em que filas precisam aceitar a inserção de itens prioritários e a desistencia do ultimo item.
+
+

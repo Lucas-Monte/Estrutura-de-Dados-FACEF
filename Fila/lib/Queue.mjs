@@ -29,10 +29,10 @@ export default class Queue {
     print() {
         let output = "[ ";
         for(let i = 0; i < this.#data.length; i++) {
-            if(output !== "{ ") {
+            if(output !== "[ ") {
                 output += ", "
             }
-            output += `(${i}): ${this.#data[1]}`;
+            output += `(${i+1}°): ${this.#data[i]}`;
         }
         
         return output + " ]";
