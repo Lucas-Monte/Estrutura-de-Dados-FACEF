@@ -1,0 +1,14 @@
+Lista encadeada é uma estrutura de dados formada por unidades de informação chamadas nodos ou nós.
+
+Cada nodo da lista encadeada tem duas partes:
+Uma que armazena a informação e outra que guarda o endereco do proximo nodo da sequencia.
+
+A qualquer momento, temos um conhecimento apenas limitado de onde se encontram todos os nodos da lista. Sabemos apenas onde esta o primeiro(head) e o ultimo(tail) nodo da sequencia. Os nodos intermediários precisam ser encontrados partindo-se do primeiro e percorrendo a sequencia.
+
+Pode estar salvo na memoria em qualquer lugar.
+Não tem posição fixa.
+
+Todo nodo tem duas informações - Armazenar o valor e quem é o proximo (Aponta para null).
+
+A lista faz com que, ao remover um item da lista, não seja necessário gastar memoria para remontar o vetor, realocando os outros dados para as posições anteriores.
+
