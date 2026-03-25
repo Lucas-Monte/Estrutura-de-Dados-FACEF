@@ -81,19 +81,108 @@ export default class LinkedList {
     }
 
     //método para remoção de um nodo na lista
-    remove(posicao) {
-        //1° caso: a lista esta vazia ou a posição informada esta fora dos limites da lista
-        if(this.isEmpty || posicao < 0 || posicao > this.#count - 1) {
-            return undefined;
-        }
-
-        let removed;
-
-        // 2° caso: remoção no inicio da lista (head)
-        if(posicao === 0) {
-            
-        }
+  remove(pos) {
+    //1º caso: a lista está vazia ou a posição informada está fora dos limites da lista
+    if (this.isEmpty || pos < 0 || pos > this.#count - 1) {
+      return undefined;
     }
+
+    let removed;
+
+    //2º caso: remoção do início da lista
+    if (pos === 0) {
+      removed = this.#head;
+
+      this.#head = this.#head.next;
+
+      if (this.#count === 1) {
+        this.#tail = null;
+      }
+    }
+
+    //3º caso: remoção de nodo intermediário ou final
+    else {
+      let before = this.#head;
+
+      for (let i = 1; i < pos; i++) {
+        before = before.next;
+      }
+      removed = before.next;
+      let after = removed.next;
+
+      before.next = after;
+      if (pos === this.#count - 1) {
+        this.#tail = before;
+      }
+    }
+    this.#count--;
+    return removed.data
+  }
+
+  removeHead(){
+    return this.remove(0)
+  }
+
+  removeTail(){
+    return this.remove(this.#count - 1)
+  }
+
+  indexOf(val){
+    //1º caso: lista vazia
+    if(this.isEmpty) {
+      return -1
+    }
+
+    let node = this.#head
+
+    for(let i = 0; i < this.#count; i++){
+      if(node.data === val){
+        return i
+      }
+      node = node.next
+    }
+    return -1
+  }
+
+  //Método que retorna (sem remover) um nodo da lista, de acordo com a sua posição
+  peek(pos) {
+    //1° caso: Lista vazia ou posição fora dos limites
+    if(this.isEmpty || pos < 0 || pos > this.#count - 1) {
+        return undefined;
+    }
+
+    //2° caso: busca sequencial
+    let node = this.#head;
+
+    for(let i = 0; i < pos; i++) {
+        node = node.next;
+    }
+
+    return node.data;
+  }
+
+  peekHead() {
+    return this.peek(0);
+  }
+
+  peekTail() {
+    return this.peek(this.#count - 1);
+  }
+
+  //metodo para exibição da lista encadeada
+  print() {
+    let output = '( ';
+    let node = this.#head;
+    for(let i = 0; i < this.#count; i++) {
+        if(output !== '( '){
+            output += ', '
+        }
+        output += `[${i}]: ${node.data}`
+        node = node.next;
+    }
+    output += ` ), count: ${this.#count}`;
+    return output;
+  }
 
 
 }
