@@ -61,6 +61,84 @@ export default class DoublyLinkedList {
         }
 
         //4° caso: inserção em posição intermediaria
+        else {
+            let nodePos = this.#findNode(pos);
+            let before = nodePos.prev;
+
+            before.next = inserted;
+
+            inserted.prev = before;
+
+            inserted.next = nodePos;
+
+            nodePos.prev = inserted;
+        }
+
+        this.#count ++;
+    }
+
+    insertHead(val) {
+        this.insert(0, val);
+    }
+
+    insertTail(val){
+        this.insert(this.#count, val);
+    }
+
+    //metodo para remover um nodo de qualquer posição
+    remove(pos) {
+        if(this.isEmpty || pos < 0 || pos > this.#count - 1) return undefined;
+
+        let removed;
+
+        //2° caso: remoção do primeiro nodo
+        if(pos === 0) {
+            removed = this.#head;
+            this.#head = removed.next;
+            if(this.#head) {
+                this.#head.prev = null;
+            }
+            if(this.count === 1) {
+                this.#tail = null;
+            }
+
+            //3³ caso: remoçãodo ultimo nodo
+            else if(pos === this.#count - 1) {
+                removed = this.#tail;
+                this.#tail = removed.prev;
+
+                if(this.#tail) this.#tail.next = null;
+
+                if(this.#count === 1) this.#head = null;
+            }
+
+            //4° caso: remoção em posição intermediaria
+            else {
+                removed = this.#findNode(pos);
+                let before = removed.prev;
+                let after = removed.next;
+
+                before.next = after;
+                after.prev = before;
+            }
+
+            this.#count --
+            
+            return removed.data;
+        }
+
+        
+    }
+
+    removeHead() {
+        return this.remove(0);
+    }
+
+    removeTail() {
+        return this.remove(this.#count -1);
+    }
+
+    peek(pos) {
         
     }
 } 
