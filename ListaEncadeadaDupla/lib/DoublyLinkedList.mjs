@@ -35,10 +35,11 @@ export default class DoublyLinkedList {
             node = this.#tail;
             for(let i = this.#count - 1; i > pos; i--) node = node.prev;
         }
+        return node;
     }  
     
     insert(pos, valor) {
-        let inserted = new node(valor);
+        let inserted = new Node(valor);
 
         //1° caso: lista vazia;
         if(this.isEmpty) {
@@ -101,33 +102,29 @@ export default class DoublyLinkedList {
             if(this.count === 1) {
                 this.#tail = null;
             }
-
+        }
             //3³ caso: remoçãodo ultimo nodo
-            else if(pos === this.#count - 1) {
-                removed = this.#tail;
-                this.#tail = removed.prev;
+        else if(pos === this.#count - 1) {
+            removed = this.#tail;
+            this.#tail = removed.prev;
 
-                if(this.#tail) this.#tail.next = null;
+            if(this.#tail) this.#tail.next = null;
 
-                if(this.#count === 1) this.#head = null;
-            }
-
-            //4° caso: remoção em posição intermediaria
-            else {
-                removed = this.#findNode(pos);
-                let before = removed.prev;
-                let after = removed.next;
-
-                before.next = after;
-                after.prev = before;
-            }
-
-            this.#count --
-            
-            return removed.data;
+            if(this.#count === 1) this.#head = null;
         }
 
-        
+            //4° caso: remoção em posição intermediaria
+        else {
+            removed = this.#findNode(pos);
+            let before = removed.prev;
+            let after = removed.next;
+
+            before.next = after;
+            after.prev = before;
+        }
+
+        this.#count--;  
+        return removed.data;
     }
 
     removeHead() {
@@ -139,6 +136,55 @@ export default class DoublyLinkedList {
     }
 
     peek(pos) {
-        
+        //Lista fazia ou pos fora dos limites
+        if(this.isEmpty || pos < 0 || pos > this.#count - 1) return undefined;
+
+        const node = this.#findNode(pos);
+        return node.data; 
+    }
+
+    peekHead() {
+        return this.peek(0);
+    }
+
+    peekTail() {
+        return this.peek(this.#count - 1);
+    }
+
+    //Método que retorna a posição do nó cujo conteudo foi especificado
+    indexOf(valor) {
+        const midle = Math.ceil(this.#count/2);
+
+        let node1 = this.#head;
+        let node2 = this.#tail;
+
+        for(let i = 0; i < midle; i ++) {
+            if(valor === node1.data){
+                return i;
+            }
+            if(valor === node2.data) {
+                return this.#count - 1 - i;
+            }
+
+            node1 = node1.next;
+            node2 = node2.prev;
+        }
+
+        return -1;
+    }
+
+    print() {
+        let output = "( ";
+        let node = this.#head;
+
+        for(let i = 0; i < this.#count; i++) {
+            if(output !== "( ") output += ", ";
+            output += `[${i}]: ${node.data}`;
+            node = node.next;
+        }
+
+        output += ` ), count: ${this.#count}`;
+
+        return output;
     }
 } 
