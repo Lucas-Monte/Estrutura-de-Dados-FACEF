@@ -1,0 +1,31 @@
+Fazer a medição da complexidade do algoritmo.
+Medir custo de uso das estruturas de dados.
+
+O que é Complexidade de algoritmo?
+Ela mede quanto recurso computacional (memoria e tempo) ele consome para resolver um problema em função do tamanho da entrada.
+
+Dois tipos principais:
+- Complexidade de Tempo (Time complexity): mede o numero de operações;
+- Complexidade de Espaço (Space complexity): mede o uso de memória;
+
+Big O -> ajuda nessa complexidade, nessas medições.
+
+Big-O é uma "ferramenta" usada para medir a eficiencia de algoritmos. Ele nos ajuda a entender como o tempo de execução ou o uso de memoria de um algoritmo cresce a medida que a entrada aumenta.
+
+Pense assim: se um programa roda rapido para 10 dados, ele continuará rápido para 1 milhão? O big-O nos da uma forma de responder essa pergunta.
+
+vetor = [5, 7, 2 ,3 10, 8]
+
+console.log(vetor[2])
+
+O(1) -> quantidade des buscas
+O(1) é o melhor caso, mas nem sempre é possível.
+
+O(1) -> constante (acesso direto ao vetor)
+O(N) -> Linear (percorrer um array)
+O(log N) -> Logaritmica (busca binaria)
+O(N!) -> Fatorial (algoritmos de permutação)
+O(2^N) -> Exponecial (problemas de combinação)
+O(n log n) -> Lenearitma (Quicksort, mergesort)
+O(n^2) -> Quadratica (bubble sort, selection sort)
+
