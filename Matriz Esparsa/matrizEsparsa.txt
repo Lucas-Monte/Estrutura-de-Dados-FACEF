@@ -1,0 +1,34 @@
+Uma matriz esparsa é uma matriz na qual a maioria dos elementos são zeros (ou nulos). Por isso, ao inves de armazenar todos os elementos como em uma matriz convencional, ela pode ser representada de forma mais eficiente economizando espaço na memoria e melhorando desempenho em certos casos.
+
+guarda linha, coluna e valor
+
+por que usar?
+
+- economia de memoria;
+- redução no tempo de processamento para algumas operações;
+- Util em aplicações como: algebra linear, grafos, processamento de imagens, aprendizado de maquina.
+
+Lista de Triplas (COO - Coordinate List)
+
+A matris é representada como um conjunto de triplas (linha, coluna e valor), onde X é uma entrada na matriz e i e j denotam seus indeces de linha e coluna, respectivamente. Quando o estilo transacional é usado, todas as entradas 0 na matriz são desconsideradas.
+
+Matriz original
+
+0 0 0 5
+0 8 0 0
+0 0 0 0 
+3 0 0 0
+
+Representação esparsalista de triplas
+linha  | coluna | valor
+----------------------
+|   0   |   3   |   5  |  
+|   1   |   1   |   8  |
+|   3   |   0   |   3  |
+
+Compensa quando 70% da matriz é 0
+
+- Representação de grafos
+- Imagens esparsas
+- Sistema de recomendação
+- Algoritmos de aprendizado de máquinas
