@@ -76,4 +76,50 @@ function exempleNlogN(array) {
     }
 }
 
-exempleNlogN(array)
+//exempleNlogN(array)
+
+
+// O(n^2)
+function exempleN_2(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            console.log(array[i], array[j])
+        }
+    }
+}
+//exempleN_2(array);
+
+//O(2^n)
+function exemple2_N(n) {
+    if(n === 0) return 1
+    return exemple2_N(n - 1) + exemple2_N(n - 1)
+}
+
+//fatorial recursivo
+function factorial(n) {
+    const inicio = performance.now()
+    if(n === 0) return 1 // precisa ter uma saida, senão será um loop infinito
+    
+    const fim = performance.now()
+
+    console.log("Tempo de execução: ", fim - inicio, " ms");
+    return n * factorial(n-1);
+}
+
+// Recursividade é muito mais rápido do que uma estrutura de repetição comum
+
+console.log(factorial(5));
+
+function fatorialIterativo(n) {
+    const inicio = performance.now()
+    let resultado = 1;
+    for(let i = n; i > 1 ; i--) {
+        resultado = resultado * i;
+    }
+    console.log(resultado);
+    const fim = performance.now()
+
+    console.log("Tempo de execução: ", fim - inicio, " ms");
+}
+
+fatorialIterativo(5);
