@@ -1,0 +1,7 @@
+Percorre o verto, verificando se cada um dos elementos corresponde ao valor de busca.
+Ao encontrar uma correspondencia retorna a posição onde o valor de busca está no vetor.
+Caso o valor de vusca não exista no vetor, retorno o valor convencional -1.
+
+Complexidade - O(n).
+
+
