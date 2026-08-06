@@ -1,4 +1,4 @@
-import {objNomes} from "./vetor-obj-nomes.mjs"
+import {objNomes} from "../Data/vetor-obj-nomes.mjs"
 
 
 function buscaSequencial(vetor, fnComp) {

@@ -1,0 +1,1 @@
+A lista/vetor/conjunto de dados precisa estar ordenada, pois ira dividir ao meio e fazer a verificação se o valor buscado é igual, maior ou menor ao valor do meio, eliminando os outros.
