@@ -1,0 +1,11 @@
+Ordenaçao por seleção
+
+for dentro de for
+
+O(n^2)
+
+Isola uma posição e olha as outras descobrindo o menor valor, no final, pergunta se o isolado é maior que o menor, se for, trocam de posição e o novo ponto selecionado é escolhido com o for.
+
+diminui o numero de trocas necessárias para fazer a ordenação, mas a velocidade de execução é igual o bubble sort, mantendo o O(n^2).
+
+Olhar para as posições, não para os valores quando for fazer as verificações (posicaoMenor = i) -> vetor[posicaoMenor]
