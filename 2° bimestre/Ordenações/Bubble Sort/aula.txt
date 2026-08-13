@@ -1,0 +1,9 @@
+Algoritmo de ordenação dos mais simples.
+Muito importante saber o custo.
+O(n^2)
+
+Bubble (bolha, flutuar, jogar os maiores para o final, para cima)
+
+A ideia é percorrer o vetor varias vezes e, a cada passagem, fazer flutuar para o topo o maior elemento da sequencia
+
+passa pelo vetor pelo menos uma vez - Do While com for dentro.
