@@ -1,0 +1,12 @@
+Separação por mistura
+
+Dividir para conquistar
+
+Dividir o problema em subproblemas e resolver esses subproblemas através da recursividade
+e
+Conquistar, após todos os subproblemas terem sido resolvidos, que é a união das soluções
+
+Dividir um vetor no meio varias vezes até ter varios vetores de unico valor e faz a verificação dos valores
+
+Há um alto consumo de memória, mas é mais rápido que o Bubble sort e o selection sort
+
