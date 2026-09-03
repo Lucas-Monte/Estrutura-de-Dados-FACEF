@@ -1,0 +1,3 @@
+Escolhe um dos elementos para ser o Pivo, podendo ser escolhido qualquer um.
+Divide o vetor em subvetores, com os menores que o pivo ao lado esquerdo e os maiores no lado direito até que sobre apenas um elemento, retornando ordenado.
+Usa recursividade.
