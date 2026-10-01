@@ -5,6 +5,7 @@ function buscaSequencial(vetor, fnComp) {
     for(let i = 0; i < vetor.length; i++) {
         if(fnComp(vetor[i])) return i
     }
+    return -1
 }
 
 function compararNome(obj) {

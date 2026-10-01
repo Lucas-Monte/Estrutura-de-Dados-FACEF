@@ -1,0 +1,31 @@
+Trabalhar com ponteiros, nós, nodos, igual lista encadeada
+Menores a esquerda, maiores a direita
+Só sabemos o valor da Raiz -> Root
+
+Nos -> Todos os itens guardados na arvore;
+Raiz -> É o nó no topo da arvore;
+Filhos -> Nós que vem depois de outros nós;
+Pais -> Nós que vem antes de outros nós;
+Folhas -> Nós que não tem filhos, são os ultimos nós da arvore;
+Altura -> é o comprimento do maior caminho que vai do nó raiz até uma folha (nó sem filhos);
+Cardinalidade -> Quantidade de nós;
+
+No 
+data = null
+left = null
+right = null
+
+Pre-Ordem ou profundidade: (VLR)
+Visita a raiz
+Percorre a sub-arvore esquerda em pre-Ordem
+Percorre a sub-arvore direita em pre-Ordem
+
+In-Ordem ou Ordem Simetrica: (LVR)
+Percorre a subarvore esquerda em ordem Simetrica
+visita a raiz
+Percorre a subarvore direita em ordem Simetrica
+
+Pós-Ordem: (LRV)
+Percorre a subarvore esquerda em pos-ordem
+Percorre a subarvore direita em pos-ordem
+Visita a Raiz
