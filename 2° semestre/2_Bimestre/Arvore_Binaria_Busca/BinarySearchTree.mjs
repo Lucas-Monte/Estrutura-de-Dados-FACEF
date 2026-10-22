@@ -84,9 +84,12 @@ export default class BinarySearchTree {
     }
 
     postOrderTraversal(fnCallback, root = this.#root) {
-        this.postOrderTraversal(fnCallback, root.left);
-        this.postOrderTraversal(fnCallback, root.right);
-        fnCallback(root.data);
+        if(root !== null) {
+            this.postOrderTraversal(fnCallback, root.left);
+            this.postOrderTraversal(fnCallback, root.right);
+            fnCallback(root.data);
+        }
+        
     }
 
 
@@ -121,6 +124,7 @@ export default class BinarySearchTree {
         //Continua recrusivamente o processo de exclusão pela subarvore esquerda
         if(val < root.data) {
             root.left = this.#removeNode(root.left, val);
+            return root;
         }
 
         //3° caso: o valor a ser excluido é maior que o valor da raiz
@@ -128,12 +132,13 @@ export default class BinarySearchTree {
 
         if(val > root.data) {
             root.right = this.#removeNode(root.right, val);
+            return root;
         }
 
         //4° caso: o valor a ser excluido é igual ao valor da raiz (olhar para o grau)
         //4.1: nodo de grau 0 (nodo folha)
         if(root.left === null && root.right === null) {
-            root == null;
+            root = null;
             return root;
         }
 
