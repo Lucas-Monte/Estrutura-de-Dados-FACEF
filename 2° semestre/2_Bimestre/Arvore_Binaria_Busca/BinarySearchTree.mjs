@@ -56,7 +56,7 @@ export default class BinarySearchTree {
             root.right === null ? root.right = inserted : this.#insertNode(inserted, root.right);
         }
         else {
-            this.#insertNode(inserted, root.left);
+            return
         }
     }
 
@@ -74,4 +74,112 @@ export default class BinarySearchTree {
             this.inOrderTraversal(fnCallback, root.right); //3°
         }
     }
+
+    preOrderTraversal(fnCallback, root = this.#root) {
+        if(root !== null) {
+            fnCallback(root.data);
+            this.preOrderTraversal(fnCallback, root.left);
+            this.preOrderTraversal(fnCallback, root.right);
+        }
+    }
+
+    postOrderTraversal(fnCallback, root = this.#root) {
+        this.postOrderTraversal(fnCallback, root.left);
+        this.postOrderTraversal(fnCallback, root.right);
+        fnCallback(root.data);
+    }
+
+
+
+    #minNode(root) {
+        while((root!==null) && (root.left !== null)) {
+            root = root.left
+        }
+        return root;
+    }
+
+
+    #maxNode(root) {
+        while((root!==null) && (root.right !== null)) {
+            root = root.right
+        }
+        return root;
+    }
+
+    //Método publico para excluir um valor da arvore
+
+    remove(val) {
+        this.#root = this.#removeNode(this.#root, val);
+    }
+
+    //Método privado para excluir um valor da arvore
+    #removeNode(root, val) {
+        //1°caso: arvore vazia
+        if(root === null) return null;
+
+        //2° caso: o valor a ser excluido é menor que o valor da raiz
+        //Continua recrusivamente o processo de exclusão pela subarvore esquerda
+        if(val < root.data) {
+            root.left = this.#removeNode(root.left, val);
+        }
+
+        //3° caso: o valor a ser excluido é maior que o valor da raiz
+        //Continua recrusivamente o processo de exclusão pela subarvore direita
+
+        if(val > root.data) {
+            root.right = this.#removeNode(root.right, val);
+        }
+
+        //4° caso: o valor a ser excluido é igual ao valor da raiz (olhar para o grau)
+        //4.1: nodo de grau 0 (nodo folha)
+        if(root.left === null && root.right === null) {
+            root == null;
+            return root;
+        }
+
+        //4.2: nodo de grau 1 (com subarvore a esquerda)
+        if(root.left !== null && root.right === null) {
+            root = root.left
+            return root;
+        }
+
+        //4.3: nodo de grau 1 (com subarvore a direita)
+        if(root.right !== null && root.left === null) {
+            root = root.right
+            return root;
+        }
+
+        //4.4: nodo de grau 2
+        //precisamos encontrar:
+        //1) o nodo de maior valor da subarvore esquerda; ou
+        //2) o nodo de menor valor da subarvore direita
+        const newRoot = this.#minNode(root.right);
+        root.data = newRoot.data;
+        //Excluindo o valor que ficou
+        root.right = this.#removeNode(root.right, newRoot.data);
+        return root;
+    }
+
+    //Metodo publico que busca por um valor dentro da arvore
+    //retorna true caso o valor exista e false caso não exista
+
+    search(val) {
+        const node = this.#searchNode(this.#root, val)
+        return node !== null;
+    }
+
+    #searchNode(root, val) {
+        //1°caso: arvore vazia
+        if(root === null) return null;
+
+        //2°caso: o valor procurado é menor
+        if(val < root.data) return this.#searchNode(root.left, val);
+
+        //3°caso: o valor procurado é maior
+        if(val > root.data) return this.#searchNode(root.right, val);
+
+        //4°caso: o valor é igual
+        return root;
+    }
+
 }
