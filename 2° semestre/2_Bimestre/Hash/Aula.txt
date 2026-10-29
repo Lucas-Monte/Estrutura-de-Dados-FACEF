@@ -1,0 +1,15 @@
+-Problema: Como achar um dado entre milhoes de dados?
+-Desejo: Ir diereto a posição, sem procurar
+-Ideia: Calcular o indice a partir da chave
+-Obstaculo: Duas chaves podem cair na mesma posição
+-Solução: Tratar colisões e manter a tabela folgada
+-Pratica: Construir, medir e resolver problemas
+
+O(1);
+
+Chave: O que identifica o dado: nome, CPF, matricula
+Função Hash: A maquina que converte a chave em um numero
+Indice: A posição do array onde o dado fica
+Tabela Hash: O array e a função de hash trabalhando juntos
+
+Uma das funções é fazer com o resto da divisão
