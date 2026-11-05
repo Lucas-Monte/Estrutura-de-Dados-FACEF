@@ -13,3 +13,16 @@ Indice: A posição do array onde o dado fica
 Tabela Hash: O array e a função de hash trabalhando juntos
 
 Uma das funções é fazer com o resto da divisão
+
+
+COLISÕES SÃO INEVITAVEIS -> mesmo fazendo pesos, por exemplo
+Não é bug. O trabalho é lidar bem com ela
+
+Quando tem colisão, deixa de ser O(1) e passa a ser O(n) para percorrer (pior caso)
+_hash()
+set(chave, valor)
+get(chave)
+delete(chave)
+
+FATOR DE CARGA -> rehash -> aumentar tamanho do hash - cria um novo e coloca o antigo dentro dele -> altera todos de posição
+_rehash()
